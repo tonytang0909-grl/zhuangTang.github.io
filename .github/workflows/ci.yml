@@ -36,6 +36,13 @@ jobs:
 
       - name: Show Git Remote
         run: git remote -v
+      
+      - name: Show Git Config
+        run: git config --list
+
+      - name: Show Git Remotes
+        run: git remote -v
+
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@3.7.1
@@ -43,4 +50,4 @@ jobs:
           ACCESS_TOKEN: ${{ secrets.DEPLOY }}
           BRANCH: main
           FOLDER: dist
-          REPOSITORY_NAME: tonytang0909-grl/zhuangTang.github.io
+          REPOSITORY: tonytang0909-grl/zhuangTang.github.io
