@@ -21,4 +21,5 @@ jobs:
           ACCESS_TOKEN: ${{ secrets.DEPLOY }}
           BRANCH: main
           FOLDER: dist
-          repository-name: https://github.com/tonytang0909-grl/portoTang
+          repository-name: tonytang0909-grl/zhuangTang.github.io
+
