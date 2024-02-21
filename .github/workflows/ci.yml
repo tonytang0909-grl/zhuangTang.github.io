@@ -1,5 +1,4 @@
 name: Build and Deploy
-
 on:
   push:
     branches:
@@ -21,5 +20,5 @@ jobs:
           ACCESS_TOKEN: ${{ secrets.DEPLOY }}
           BRANCH: main
           FOLDER: dist
-          repository-name: tonytang0909-grl/zhuangTang.github.io
+          REPOSITORY_NAME: tonytang0909-grl/zhuangTang.github.io
 
