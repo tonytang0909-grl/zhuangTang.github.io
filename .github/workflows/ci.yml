@@ -23,4 +23,4 @@ jobs:
           ACCESS_TOKEN: ${{ secrets.DEPLOY }}
           BRANCH: main
           FOLDER: dist
-          REPOSITORY_NAME: tonytang0909-grl/zhuangTang.github.io        
+          REPOSITORY_NAME: tonytang0909-grl/zhuangTang.github.io 
