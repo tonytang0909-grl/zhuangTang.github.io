@@ -1,26 +1,46 @@
 name: Build and Deploy
+
 on:
   push:
     branches:
       - main
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+
       - name: Use Node.js 20
         uses: actions/setup-node@v4
         with:
           node-version: 20
-      - name: Install and Build
+
+      - name: Install Dependencies and Build
         run: |
           npm install
           npm run build
-      - name: Deploy
+
+      - name: Configure Git
+        run: |
+          git config user.name "tonytang0909-grl"
+          git config user.email "114914962+tonytang0909-grl@users.noreply.github.com"
+
+      - name: Remove Existing Remote
+        run: git remote rm origin || true
+
+      - name: Add GitHub Remote
+        run: git remote add origin https://tonytang0909-grl:${{ secrets.GITHUB_TOKEN }}@github.com/tonytang0909-grl/zhuangTang.github.io.git
+
+      - name: Show Git Remote
+        run: git remote -v
+
+      - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@3.7.1
         with:
           ACCESS_TOKEN: ${{ secrets.DEPLOY }}
           BRANCH: main
           FOLDER: dist
-          REPOSITORY_NAME: tonytang0909-grl/zhuangTang.github.io 
+          REPOSITORY_NAME: tonytang0909-grl/zhuangTang.github.io
